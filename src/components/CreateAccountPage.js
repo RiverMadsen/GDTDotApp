@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { useState } from "react";
-
+import { useState, memo } from "react";
+import { useEffect } from "react";
 function CreateAccountPage({handleReLogin}) {
+  console.log('CreateAccountPage rendered')
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect( () => {
+    if( isConnectedToWifi() === false){
+      alert ('Sorry - You can only create an account when connected to WiFi')
+      handleReLogin();
+    }
+  },[])
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -28,7 +36,18 @@ function CreateAccountPage({handleReLogin}) {
       return hashHex;
     });
   }
-  function handleShowLogin() {
+
+  function isConnectedToWifi() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection) {
+      console.log(connection)
+      return connection.type === 'wifi';
+    } else {
+      // Network information API not supported
+      return false;
+    }
+  }
+  function handleReturnToLogin() {
     handleReLogin()
   }
   return (
@@ -86,25 +105,11 @@ function CreateAccountPage({handleReLogin}) {
         </button>
         <div className="form-group">
           <Link href="/" className="walki-link mt-10" passHref>
-            <div onClick={handleShowLogin}>Return to Login</div>
+            <div onClick={handleReturnToLogin}>Return to Login</div>
           </Link>
         </div>
       </form>
     </>
   );
 }
-export default CreateAccountPage;
-
-{
-  /* <div className="form-group">
-<label htmlFor="displayNameInput">Display Name:</label>
-<input
-  type="text"
-  className="form-control"
-  id="displayNameInput"
-  value={displayName}
-  onChange={(event) => setDisplayName(event.target.value)}
-  required
-/>
-</div> */
-}
+export default memo(CreateAccountPage);

@@ -3,6 +3,7 @@ import { useState } from "react";
 import CreateAccountPage from "./CreateAccountPage";
 
 function LoginPage(props) {
+  console.log('LoginPage rendered')
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
@@ -26,13 +27,15 @@ function LoginPage(props) {
   }
   return (
     <>
+
       <p>
-        Walkipedia uses your email if you propose edits to to the app and we need to get in touch.  It will not be shared with other indviduals.
+        Walkipedia uses your email if you propose edits to to the app and we need to get in touch with you.  It will not be shared with other indviduals.
         Walkipedia may use your email to confirm your membership
         with partner trail associations. For that reason, please use the email
-        associated with your Great Divide Trail Association membershihp.
+        associated with your Great Divide Trail Association membership.
       </p>
       {!showCreateAccount && (
+        <>    <h3>Log In</h3>
         <form onSubmit={handleSubmit} className="container mt-5">
           <div className="form-group">
             <label htmlFor="emailInput">Email:</label>
@@ -74,23 +77,10 @@ function LoginPage(props) {
             </Link>
           </div>
         </form>
+        </>
       )}
       {showCreateAccount && <CreateAccountPage handleReLogin={handleReLogin}></CreateAccountPage>}
     </>
   );
 }
 export default LoginPage;
-
-{
-  /* <div className="form-group">
-<label htmlFor="displayNameInput">Display Name:</label>
-<input
-  type="text"
-  className="form-control"
-  id="displayNameInput"
-  value={displayName}
-  onChange={(event) => setDisplayName(event.target.value)}
-  required
-/>
-</div> */
-}
