@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import 'bootswatch/dist/solar/bootstrap.min.css'
+import 'public/bootstrap.min.css'
 
 
 export default function App({ Component, pageProps }) {
