@@ -1,9 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -87,12 +87,12 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 a {
@@ -104,4 +104,210 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.esriMap {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bs-gray);
+}
+
+.mainContent {
+  padding: 0px 15px;
+  height: 45vh;
+  overflow-y: scroll;
+  text-align: justify;
+}
+.slider {
+  position: absolute;
+  width: 30px;
+  height: 60px;
+  top: 50vh;
+  right: 0px;
+  z-index: 2;
+  margin-top: -10px;
+  border-radius: 15px;
+}
+.bottomSection {
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  top: 50vh;
+  background-color: black;
+  border-top: 1px solid var(--walki-light-blue);
+}
+.mainContentHeader {
+  margin: 0px -15px 0px -15px;
+  padding-left: 5px;
+  background: linear-gradient(
+    to right,
+    var(--walki-blue),
+    var(--walki-dark-blue),
+    var(--walki-blue)
+  );
+  /* background: var(--walki-dark-blue); */
+}
+
+.pageContent {
+  margin-top: 10px;
+  line-height: 1.3;
+
+}
+.mainContentHeader__title {
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow-x: clip;
+  padding: 2px 0px;
+  color: var(--walki-light-yellow);
+  border-bottom: 1px solid var(--walki-light-blue);
+}
+.footer {
+  line-height: 20px;
+  width: 100vw;
+  border-top: 1px solid white;
+  height: 20px;
+  position: fixed;
+  bottom: 0px;
+  background-color: var(--walki-dark-green);
+}
+.prevNavigation,
+.nextNavigation {
+  color: var(--walki-light-gray);
+}
+.nextNavigation {
+  text-align: right;
+}
+.currentPage {
+  color: var(--walki-white);
+}
+.syncSet {
+  opacity: 50%;
+  border: 2px solid black;
+  background-color: var(--walki-light-green);
+  /* background:linear-gradient(var(--walki-green), transparent); */
+}
+.syncUnset {
+  opacity: 40%;
+  border: 1px solid black;
+  background-color: var(--walki-light-yellow);
+}
+body {
+  color: white !important;
+}
+:root {
+  --walki-red: hsl(330, 100%, 50%);
+  --walki-orange: hsl(30, 100%, 50%);
+  --walki-yellow: hsl(60, 100%, 50%);
+  --walki-green: hsl(95, 50%, 60%);
+  --walki-blue: hsl(260, 100%, 50%);
+  --walki-white: hsl(0, 100%, 100%);
+  --walki-gray: hsl(0, 0%, 60%);
+  --walki-black: hsl(0, 100%, 0%);
+
+  --walki-dark-red: hsl(330, 100%, 30%);
+  --walki-dark-orange: hsl(30, 100%, 30%);
+  --walki-dark-yellow: hsl(60, 100%, 30%);
+  --walki-dark-green: hsl(95, 50%, 30%);
+  --walki-dark-blue: hsl(260, 100%, 30%);
+  --walki-dark-gray: hsl(0, 0%, 30%);
+
+  --walki-light-red: hsl(330, 100%, 70%);
+  --walki-light-orange: hsl(30, 100%, 70%);
+  --walki-light-yellow: hsl(60, 100%, 70%);
+  --walki-light-green: hsl(95, 100%, 70%);
+  --walki-light-blue: hsl(260, 100%, 70%);
+  --walki-light-gray: hsl(0, 0%, 80%);
+}
+h3 {
+  color: var(--walki-red);
+}
+.menu-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  border: none;
+  background-color: unset;
+}
+.tools-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px sold black;
+  border-radius: 18px;
+  background-color: hsla(240, 100%, 50%, 0.1);
+  color:black;
+  font-weight: bold;
+  font-size: 18px;
+}
+.menu-icon > rect {
+  opacity: 0.6;
+
+}
+.tools-icon {
+  opacity: .6;
+}
+.test {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: blue;
+}
+.menu {
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  background-color: var(--walki-dark-blue);
+  top: 0;
+  border-right: 1px solid black;
+  font-size: 14px;
+  padding: 5px;
+  overflow-y: scroll;
+  z-index: 3;
+  background: linear-gradient(180deg, var(--walki-dark-blue),var(--walki-dark-blue) 60%, hsl(260deg 100% 30% / 90%));
+}
+.hidden {
+  visibility: hidden;
+}
+.menuList {
+  list-style: none;
+  padding-left: 0;
+}
+.menuItem {
+  border-top: 1px solid var(--walki-light-blue);
+  padding: 5px 5px;
+  list-style-type: none;
+  font-size: 1.2em;
+}
+.secondaryMenuText {
+  font-size: 0.8em;
+  color: var(--walki-light-gray);
+}
+.menuHeaderText {
+  color: var(--walki-yellow);
+  display: inline;
+}
+.menuItemIcon {
+  position: relative;
+  float: left;
+  display: inline;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 12px;
+  margin-right: 10px;
+  background-color: var(--walki-green);
+  text-align: center;
+  color: black;
+}
+.right {
+  float: right;
+  display: inline;
+}
+menuHeader{
+  margin: 10px 0px;
 }
