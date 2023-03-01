@@ -18,6 +18,9 @@ function HomePage() {
     sliderLeftPosition: 300,
     mainContentYPosition: 400,
     menuVisible: false,
+    userAuthenticated: false,
+    userName: '',
+    userPasswordHash: '',
     activeMenuItem: {
       ID: "",
       children: [],
