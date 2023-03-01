@@ -10,7 +10,7 @@ export function Slider() {
 
   useEffect( () => {
     console.log("I am an effect in the slider")
-    updateSettings({...settings, screenHeight: screen.height , screenWidth: screen.width,sliderLeftPosition: 300, mainContentYPosition: 300})
+    updateSettings({...settings, screenHeight: screen.height , screenWidth: screen.width,sliderLeftPosition: 350, mainContentYPosition: 200})
 
   }, [])
 

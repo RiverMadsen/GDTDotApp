@@ -7,12 +7,26 @@ function CreateAccountPage({handleReLogin}) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     console.log("Submitting form", { email, firstName, password, confirmPassword });
     if(password !== confirmPassword){
       alert("Passwords don't match.")
+      setPassword('')
+      setConfirmPassword('')
+      return
     }
+    const userPasswordHash = await hashString(email.toLowerCase() + password);
+    console.log(`emailpasshash = ${userPasswordHash}`)
+  }
+  async function  hashString(str) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(str);
+    return crypto.subtle.digest('SHA-256', data).then(hashBuffer => {
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      return hashHex;
+    });
   }
   function handleShowLogin() {
     handleReLogin()
@@ -72,7 +86,7 @@ function CreateAccountPage({handleReLogin}) {
         </button>
         <div className="form-group">
           <Link href="/" className="walki-link mt-10" passHref>
-            <div onClick={handleShowLogin}>Login</div>
+            <div onClick={handleShowLogin}>Return to Login</div>
           </Link>
         </div>
       </form>
