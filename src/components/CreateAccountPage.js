@@ -1,54 +1,136 @@
 import Link from "next/link";
+import { initializeApp } from "firebase/app";
 import { useState, memo } from "react";
-import { useEffect } from "react";
-function CreateAccountPage({handleReLogin}) {
-  console.log('CreateAccountPage rendered')
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, collection, getDocs, getDoc, addDoc } from "firebase/firestore";
+import { useContext, useRef, useEffect } from "react";
+import SettingsContext from "./SettingsContext";
+
+function CreateAccountPage({ handleReLogin }) {
+  console.log("CreateAccountPage rendered");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { settings, updateSettings } = useContext(SettingsContext);
 
-  useEffect( () => {
-    if( isConnectedToWifi() === false){
-      alert ('Sorry - You can only create an account when connected to WiFi')
-      handleReLogin();
-    }
-  },[])
+  //TODO - Note that this code needs to be commented out during development for now because the value return very oddly indicates that we are on 4G
+  //This needs to get tested on an actual phone to make sure isConnectedToWifi return true when we actually are.
+  // useEffect( () => {
+  //   if( isConnectedToWifi() === false){
+  //     alert ('Sorry - You can only create an account when connected to WiFi')
+  //     handleReLogin();
+  //   }
+  // },[])
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log("Submitting form", { email, firstName, password, confirmPassword });
-    if(password !== confirmPassword){
-      alert("Passwords don't match.")
-      setPassword('')
-      setConfirmPassword('')
-      return
+    console.log("Submitting form", {
+      email,
+      firstName,
+      password,
+      confirmPassword,
+    });
+    if (password !== confirmPassword) {
+      alert("Passwords don't match.");
+      setPassword("");
+      setConfirmPassword("");
+      return;
     }
-    const userPasswordHash = await hashString(email.toLowerCase() + password);
-    console.log(`emailpasshash = ${userPasswordHash}`)
+    //First get the details that we will persist in the database
+    const emailHash = await hashString(email.toLowerCase());
+    const emailPasswordHash = await hashString(email.toLowerCase() + password);
+    console.log(`emailhash = ${emailHash}`);
+    console.log(`emailpasshash = ${emailPasswordHash}`);
+    //Next, run a query to see if the email is already known in the users collection
+    const firebaseApp = initializeApp({
+      apiKey: "AIzaSyDjJrhWRQaslMDoSIuBvth8RprLbg7s3FE",
+      authDomain: "walkipedia-81dd3.firebaseapp.com",
+      projectId: "walkipedia-81dd3",
+      storageBucket: "walkipedia-81dd3.appspot.com",
+      messagingSenderId: "514716350994",
+      appId: "1:514716350994:web:78160c2127d8fcbc1736cb",
+      measurementId: "G-5XD3MH2YZP",
+    });
+
+    const db = getFirestore();
+
+    const colRef = collection(db, "Users");
+
+    getDocs(colRef)
+      .then((snapshot) => {
+        let users = [];
+        snapshot.docs.forEach((doc) => {
+          users.push({ ...doc.data(), id: doc.id });
+        });
+        const sameUser = users.filter(
+          (user) => user.email === email.toLowerCase()
+        );
+        if (sameUser.length > 0) {
+          alert(
+            "Sorry - that email is already in use.  Did you forget your password?"
+          )
+        }
+        else{
+          const data = {
+            emailPasswordHash: emailPasswordHash,
+            emailHash: emailHash,
+            email: email.toLowerCase(),
+            emailVerified: false,
+            firstName: firstName,
+            membershipVerified: false
+          }
+          addDataToCollection(data, db).then( (value) => {
+            debugger
+            alert("SUCCESSS!  Please check your EMail for a verification code.")
+          }).catch( (reason) =>{
+            debugger
+            console.log("Something unexpected happened saving the email.")
+          })
+        }
+      })
+      .catch((err) => {
+        console.log(`ERROR! ${err.message}`);
+      });
   }
-  async function  hashString(str) {
+
+  async function addDataToCollection(data, db) {
+    const collectionRef = collection(db, "Users");
+    try {
+      const docRef = await addDoc(collectionRef, data);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+  
+  async function hashString(str) {
     const encoder = new TextEncoder();
     const data = encoder.encode(str);
-    return crypto.subtle.digest('SHA-256', data).then(hashBuffer => {
+    return crypto.subtle.digest("SHA-256", data).then((hashBuffer) => {
       const hashArray = Array.from(new Uint8Array(hashBuffer));
-      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      const hashHex = hashArray
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
       return hashHex;
     });
   }
 
   function isConnectedToWifi() {
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const connection =
+      navigator.connection ||
+      navigator.mozConnection ||
+      navigator.webkitConnection;
     if (connection) {
-      console.log(connection)
-      return connection.type === 'wifi';
+      console.log(connection);
+      return connection.type === "wifi";
     } else {
       // Network information API not supported
       return false;
     }
   }
   function handleReturnToLogin() {
-    handleReLogin()
+    handleReLogin();
   }
   return (
     <>

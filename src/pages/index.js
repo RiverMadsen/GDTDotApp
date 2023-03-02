@@ -18,6 +18,7 @@ function HomePage() {
     sliderLeftPosition: 300,
     mainContentYPosition: 400,
     menuVisible: false,
+    userMembershipVerified: false,
     userAuthenticated: false,
     userName: '',
     userPasswordHash: '',

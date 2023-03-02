@@ -3,6 +3,7 @@ import { useState } from "react";
 import CreateAccountPage from "./CreateAccountPage";
 
 function LoginPage(props) {
+  // sets userName, userPasswordHash, userAuthenticated, userMembershipVerified
   console.log('LoginPage rendered')
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
