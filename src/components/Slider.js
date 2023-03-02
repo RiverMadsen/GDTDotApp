@@ -1,4 +1,4 @@
-import { useContext,useRef, useState } from "react";
+import { useContext,useRef, useEffect } from "react";
 import SettingsContext from "./SettingsContext";
 
 export function Slider() {
@@ -6,17 +6,13 @@ export function Slider() {
   const { settings, updateSettings } = useContext(SettingsContext);
   let {sliderLeftPosition} = settings;
   let {mainContentYPosition} = settings;
-  //debugger
-  //const defaultX = screen.width - 30; //sliderRef.current.getBoundingClientRect().x;
-  //const [leftPosition, updateLeftPosition] = useState(defaultX);
   const syncMode = settings.syncMode;
-  
-  // const handleTouchMove = (event) => {
-  //   const touch = event.touches[0];
-  //   const x = touch.clientX;
-  //   console.log(x);
-  // };
-  //window.addEventListener('touchmove', handleTouchMove);
+
+  useEffect( () => {
+    console.log("I am an effect in the slider")
+    updateSettings({...settings, screenHeight: screen.height , screenWidth: screen.width,sliderLeftPosition: 350, mainContentYPosition: 200})
+
+  }, [])
 
   const handleSliderMoved = ( (event) => {
     //return;
@@ -28,7 +24,7 @@ export function Slider() {
         }
       }
       else{
-        debugger
+        //debugger
       }
       let xPos = event.touches[0].clientX;
       let yPos = event.touches[0].clientY;
