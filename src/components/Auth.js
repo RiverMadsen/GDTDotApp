@@ -7,11 +7,13 @@ const Auth = () => {
   const toggleIndex = () => {
     setIndex((prevState) => !prevState);
   };
+  const newUser = <><span>New User? </span><span className='walki--link'> Tap here </span></>;
+  const alreadyHave = <><span>Already Have an Account? </span><span className='walki--link'> Tap here </span></>;
   return (
     <div className="container">
       {!index ? <Signin /> : <Signup />}
       <p onClick={toggleIndex}>
-        {!index ? "New user? Click here " : "Already have an acount?"}
+        {!index ?  newUser : alreadyHave}
       </p>
     </div>
   );

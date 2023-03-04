@@ -8,7 +8,7 @@ const DashboardPage = () => {
 
 
     <div>
-      <h1>Dashboard </h1>
+      <p>You are currently logged in:</p>
       <h2>Name : {user.displayName}</h2>
       <h2>Email : {user.email}</h2>
       <button className="btn btn-primary" onClick={logoutUser}>Log out</button>
