@@ -12,7 +12,6 @@ import SectionPage from "./SectionPage";
 import Settings from "./Settings";
 import SettingsPage from "./SettingsPage";
 import HelpPage from "./HelpPage";
-import LoginPage from "./LoginPage";
 import DashboardPage from "./DashboardPage";
 import AppDashPage from "./AppDashPage";
 

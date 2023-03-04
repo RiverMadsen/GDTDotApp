@@ -359,7 +359,9 @@ input {
 .walki--link{
   color:var(--walki-red);
 }
-
+.walki--emphasis{
+  color:var(--walki-green);
+}
 .container {
   box-shadow: 0 1px 6px #ccc;
   border-radius: 6px;

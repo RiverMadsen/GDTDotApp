@@ -1,3 +1,4 @@
+//This page toggles between sign-up and sign-in pages
 import React, { useState } from "react";
 import Signin from "./Signin";
 import Signup from "./Signup";
