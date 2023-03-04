@@ -81,10 +81,8 @@ function CreateAccountPage({ handleReLogin }) {
             membershipVerified: false
           }
           addDataToCollection(data, db).then( (value) => {
-            debugger
             alert("SUCCESSS!  Please check your EMail for a verification code.")
           }).catch( (reason) =>{
-            debugger
             console.log("Something unexpected happened saving the email.")
           })
         }

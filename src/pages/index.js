@@ -3,6 +3,7 @@ import MainContent from "@/components/MainContent";
 import BurgerButton from "@/components/BurgerButton";
 import ToolsButton from "@/components/ToolsButton";
 import SettingsContext from "../components/SettingsContext";
+import { UserContext, UserContextProvider } from "@/context/UserContext";
 import Menu from "../components/Menu";
 import { useState } from "react";
 import Downloads from "@/components/DownloadsPage";
@@ -20,8 +21,8 @@ function HomePage() {
     menuVisible: false,
     userMembershipVerified: false,
     userAuthenticated: false,
-    userName: '',
-    userPasswordHash: '',
+    userName: "",
+    userPasswordHash: "",
     activeMenuItem: {
       ID: "",
       children: [],
@@ -39,22 +40,22 @@ function HomePage() {
       sliderLeftPosition: screen.width - 50,
       mainContentYPosition: screen.height / 2,
     };
-    //debugger
-    //updateSettings(newValue);
   }
 
   return (
     <SettingsContext.Provider value={{ settings, updateSettings }}>
-      <BurgerButton></BurgerButton>
-      <ToolsButton></ToolsButton>
-      <ESRIMap></ESRIMap>
-      <MainContent></MainContent>
-      <Menu></Menu>
-      <Footer
-        prevNav="<< Day 15"
-        currentNav="Day 1"
-        nextNav="Day 2 >>"
-      ></Footer>
+      <UserContextProvider>
+        <BurgerButton></BurgerButton>
+        <ToolsButton></ToolsButton>
+        <ESRIMap></ESRIMap>
+        <MainContent></MainContent>
+        <Menu></Menu>
+        <Footer
+          prevNav="<< Day 15"
+          currentNav="Day 1"
+          nextNav="Day 2 >>"
+        ></Footer>
+      </UserContextProvider>
     </SettingsContext.Provider>
   );
 }

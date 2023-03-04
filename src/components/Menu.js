@@ -5,11 +5,11 @@ function Menu() {
   const menuVisible = settings.menuVisible;
 
   const { activeMenuItem } = settings;
-  // debugger
+  // 
   if (activeMenuItem.ID === "") {
     console.log("Init menu");
     //updateSettings({ ...settings, activeMenuItem: initMenuData });
-    //debugger;
+
   }
 
   const handleMenuItemClick = ({item}) => {

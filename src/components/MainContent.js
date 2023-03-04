@@ -12,7 +12,8 @@ import SectionPage from "./SectionPage";
 import Settings from "./Settings";
 import SettingsPage from "./SettingsPage";
 import HelpPage from "./HelpPage";
-import LoginPage from "./LoginPage";
+import DashboardPage from "./DashboardPage";
+import AppDashPage from "./AppDashPage";
 
 function MainContent() {
   console.log("render main contents");
@@ -35,7 +36,7 @@ function MainContent() {
     reactPageComponent = <WaypointPage />;
   }
   if (activeMenuItemType === "login") {
-    reactPageComponent = <LoginPage />;
+    reactPageComponent = <AppDashPage />;
   }
   if (activeMenuItemType === "wayline") {
     reactPageComponent = <WaylinePage />;

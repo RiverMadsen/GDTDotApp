@@ -1,4 +1,5 @@
-import SettingsContext from "./SyncContext";
+import SettingsContext from "./SettingsContext";
+
 
 export function SectionPage({ settings, handleSettingsChange }) {
   return (
