@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import SettingsContext from "./SyncContext";
+import SettingsContext from "./SettingsContext";
 
 export function Settings({ settings, handleSettingsChange }) {
 

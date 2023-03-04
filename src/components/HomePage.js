@@ -1,5 +1,5 @@
-//import React from "react";
-import SettingsContext from "./SyncContext";
+import SettingsContext from "./SettingsContext";
+
 
 export function HomePage({ settings, handleSettingsChange }) {
   return (

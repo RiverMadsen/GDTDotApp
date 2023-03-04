@@ -34,16 +34,22 @@ export const UserContextProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  //Note the display name is name|membershipValidated
   const registerUser = (email, password, name) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(() =>
         updateProfile(auth.currentUser, {
-          displayName: name,
+          displayName: name + "|" + "true"
         })
       )
-      .then((res) => console.log(res))
-      .catch((err) => setError(err.message))
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        setError(err.message);
+
+      })
       .finally(() => setLoading(false));
   };
 
@@ -51,7 +57,16 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => console.log(res))
-      .catch((err) => setError(err.code))
+      .catch((err) => {
+        let errString = "Oops - something unexpected happened." 
+        if (err.code.indexOf('user-not-found') > -1){
+            errString = "Sorrry - User not Found";
+        }
+        else if (err.code.indexOf('wrong-password')  > -1){
+            errString = "Sorrry - Wrong Password";
+        }
+        setError(errString);   
+      })
       .finally(() => setLoading(false));
   };
 

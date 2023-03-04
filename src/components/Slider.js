@@ -23,9 +23,7 @@ export function Slider() {
           console.log(settings.screenHeight)
         }
       }
-      else{
-        //debugger
-      }
+
       let xPos = event.touches[0].clientX;
       let yPos = event.touches[0].clientY;
       console.log("YPOS " + yPos);

@@ -1,4 +1,4 @@
-import SettingsContext from "./SyncContext";
+import SettingsContext from "./SettingsContext";
 
 export function DayPage({ settings, handleSettingsChange }) {
   return (

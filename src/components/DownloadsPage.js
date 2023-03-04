@@ -1,5 +1,5 @@
 //import React from "react";
-import SettingsContext from "./SyncContext";
+import SettingsContext from "./SettingsContext";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, getDocs, getDoc } from "firebase/firestore";
@@ -16,19 +16,6 @@ export function DownloadsPage({ settings, handleSettingsChange }) {
     measurementId: "G-5XD3MH2YZP",
   });
 
-  // const db = getFirestore();
-
-  // const colRef = collection(db, "TestData");
-
-  // getDocs(colRef).then((snapshot) => {
-  //   let persons = []
-  //   snapshot.docs.forEach( (doc) => {
-  //       persons.push({...doc.data(), id: doc.id})
-  //   })
-  //   //console.log(persons)
-  // }).catch( err => {
-  //   console.log(`ERROR! ${err.message}`)
-  // });
 
   return <div><h2>Downloads Page</h2><p>Please check the console for data retrieval. Figure out how to authenticate users to prevent deletion and also how to upload data and images.</p></div>;
 }
