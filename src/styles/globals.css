@@ -406,3 +406,7 @@ input {
   max-width: 400px;
   margin-bottom: 18px;
 }
+
+.walki--important {
+  color: var(--walki-yellow);
+}

@@ -21,7 +21,7 @@ function MainContent() {
   const activeMenuItemType = settings.activeMenuItem.type;
   let reactPageComponent = <HomePage />;
   if (activeMenuItemType === "downloads") {
-    reactPageComponent = <DownloadsPage />;
+    reactPageComponent = <DownloadsPage  />;
   }
   if (activeMenuItemType === "home") {
     reactPageComponent = <HomePage />;

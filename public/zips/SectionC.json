@@ -1,0 +1,8 @@
+{
+	"ID": "SectionC",
+	"type": "section",
+	"menuText": "Section C",
+	"secondaryMenuText": "Kananaskis to field",
+	"content": "This is stuff relevant to Section C",
+	"children": []
+}

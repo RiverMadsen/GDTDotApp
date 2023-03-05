@@ -1,0 +1,32 @@
+.sectionCardContainer {
+    width: 80vw;
+    height: 20vh;
+    margin: 10px;
+    background-color: var(--walki-light-gray);
+    padding: 5px;
+    color: black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 2fr 2fr 1fr;
+    column-gap:10px;
+    grid-column-gap: 10px;
+    color:var(--walki-dark-blue);
+    font-style: italic;
+    padding-right: 10px;
+    align-items:start;
+}
+.sectionCardImage{
+    border:1px solid black;
+    border-radius: 10px;
+    grid-row-start:1;
+    grid-row-end:3;
+}
+.description {
+    font-size: 0.7em;
+}
+.header {
+    font-size: 1.2em;
+    color:black;
+    font-weight: bold;
+}

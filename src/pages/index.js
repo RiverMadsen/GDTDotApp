@@ -8,8 +8,20 @@ import Menu from "../components/Menu";
 import { useState } from "react";
 import Downloads from "@/components/DownloadsPage";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 function HomePage() {
+  //const [menuJson, setMenuJson] = useState(null);
+
+  useEffect( () => {
+    const fetchData = async () => {
+      const response = await fetch("./menu.json");
+      const jsonData = await response.json();
+      updateSettings({...settings, trailMenu: jsonData});
+    };
+    fetchData();
+  },[])
+
   const [settings, updateSettings] = useState({
     units: "metric",
     screenHeight: -1,
@@ -23,6 +35,7 @@ function HomePage() {
     userAuthenticated: false,
     userName: "",
     userPasswordHash: "",
+    trailMenu: {},
     activeMenuItem: {
       ID: "",
       children: [],

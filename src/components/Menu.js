@@ -1,15 +1,17 @@
 import SettingsContext from "./SettingsContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 function Menu() {
   const { settings, updateSettings } = useContext(SettingsContext);
+
   const menuVisible = settings.menuVisible;
 
   const { activeMenuItem } = settings;
   // 
   if (activeMenuItem.ID === "") {
-    console.log("Init menu");
-    //updateSettings({ ...settings, activeMenuItem: initMenuData });
+    if(Object.keys(settings.trailMenu).length > 0 && Data[1].ID!=="TrailData"){
+      Data.splice(1,0,settings.trailMenu)
 
+    }
   }
 
   const handleMenuItemClick = ({item}) => {
@@ -29,14 +31,14 @@ function Menu() {
       </div>
 
       <ul className="menuList">
-        {initMenuData.map((item) => {
+        {Data.map((item) => {
           return (
-            <div className="menuItem">
+            <div key={item.ID} className="menuItem">
               <li>
                 <div className="menuItemIcon">{item.menuIcon}</div>
                 <div
                   className="primaryMenuText"
-                  key={item.ID}
+                  
                   onClick={() => {
                     handleMenuItemClick({ item });
                   }}
@@ -53,7 +55,7 @@ function Menu() {
     </div>
   );
 }
-const initMenuData = [
+const Data = [
   {
     ID: "Home",
     type: "home",
@@ -76,15 +78,6 @@ const initMenuData = [
     menuText: "Downloads",
     menuIcon: "D",
     content: "This is stuff relevant to the downloads page",
-    children: ["sfdg"],
-  },
-  {
-    ID: "About",
-    type: "text",
-    menuText: "About This Guide",
-    secondaryText: "International Border to Coleman",
-    content: "This is stuff relevant to the About Page",
-    menuIcon: "A",
     children: [],
   },
   {
@@ -99,9 +92,18 @@ const initMenuData = [
     ID: "Help",
     type: "help",
     menuText: "Help",
-    secondaryText: "Everythin you need to know to use the app!",
+    secondaryText: "Everything you need to know to use the app!",
     content: "This is stuff relevant to the Help Page",
     menuIcon: "i",
+    children: [],
+  },
+  {
+    ID: "About",
+    type: "text",
+    menuText: "About This Guide",
+    secondaryText: "International Border to Coleman",
+    content: "This is stuff relevant to the About Page",
+    menuIcon: "A",
     children: [],
   },
   {

@@ -1,0 +1,8 @@
+{
+	"ID": "SectionE",
+	"type": "section",
+	"menuText": "Section E",
+	"secondaryMenuText": "The Crossing to Jasper",
+	"content": "This is stuff relevant to Section E",
+	"children": []
+}

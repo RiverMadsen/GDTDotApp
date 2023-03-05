@@ -1,0 +1,75 @@
+{
+	"ID": "TrailData",
+	"type": "text",
+	"menuText": "The Great Divide Trail",
+	"secondaryText": "1200 km from Waterton to Kakwa Lake",
+	"menuIcon": "G",
+	"content": "This is the content for the Great Divide Trail text page. The children property is an array of the menu items for this page.",
+	"downloads": 
+		[{
+			"ID": "DayByDay",
+			"image": "testImage.jpg",
+			"fileName": "DayByDay.zip",
+			"name": "\"Day by Day on the Great Divide Trail\"",
+			"description": "A Mobile Guide by Dustin Lynx"
+		}, {
+			"ID": "ALLZips",
+			"image": "testImage.jpg",
+			"fileName": "All.zip",
+			"name": "The Great Divide Trail",
+			"description": "All Sections (A-G) of the Great Divide Trail"
+		},
+		{
+			"ID": "SectionAZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionA.zip",
+			"name": "Section A",
+			"description": "Waterton to Coleman"
+		},
+		{
+			"ID": "SectionBZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionB.zip",
+			"name": "Section B",
+			"description": "Coleman to Kananaskis"
+		},
+		{
+			"ID": "SectionCZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionC.zip",
+			"name": "Section C",
+			"description": "Kananaskis to Field"
+		},
+		{
+			"ID": "SectionDZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionD.zip",
+			"name": "Section D",
+			"description": "Field to The Crossing"
+		},
+		{
+			"ID": "SectionEZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionE.zip",
+			"name": "Section E",
+			"description": "The Crossing to Jasper"
+		},
+		{
+			"ID": "SectionFZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionF.zip",
+			"name": "Section F",
+			"description": "Jasper to Blueberry Lake"
+		},
+		{
+			"ID": "SectionGZip",
+			"image": "testImage.jpg",
+			"fileName": "SectionG.zip",
+			"name": "Section G",
+			"description": "Blueberry Lake to Kakwa"
+		}
+	],
+	"children": [
+		"DayByDay", "SectionA", "SectionB", "SectionC", "SectionD", "SectionE", "SectionF", "SectionG"
+	]
+}

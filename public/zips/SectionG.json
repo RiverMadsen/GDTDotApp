@@ -1,0 +1,8 @@
+{
+	"ID": "SectionG",
+	"type": "section",
+	"menuText": "Section G",
+	"secondaryMenuText": "Blueberry Lake to Kakwa Lake",
+	"content": "This is stuff relevant to Section G",
+	"children": []
+}
