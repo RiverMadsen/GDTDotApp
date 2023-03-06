@@ -17,7 +17,7 @@ function HomePage() {
     const fetchData = async () => {
       const response = await fetch("./menu.json");
       const jsonData = await response.json();
-      updateSettings({...settings, trailMenu: jsonData});
+      updateSettings({...settings, screenHeight: screen.height,screenWidth: screen.width, trailMenu: jsonData});
     };
     fetchData();
   },[])
@@ -36,6 +36,7 @@ function HomePage() {
     userName: "",
     userPasswordHash: "",
     trailMenu: {},
+    activeSection: "NONE",
     activeMenuItem: {
       ID: "",
       children: [],

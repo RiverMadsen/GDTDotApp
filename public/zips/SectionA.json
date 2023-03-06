@@ -1,0 +1,8 @@
+{
+	"ID": "SectionA",
+	"type": "section",
+	"menuText": "Section A",
+	"secondaryMenuText": "Waterton to Coleman",
+	"content": "This is stuff relevant to the Section A",
+	"children": []
+}

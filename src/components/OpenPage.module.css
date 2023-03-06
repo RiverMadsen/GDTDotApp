@@ -1,0 +1,30 @@
+.file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    display: none;
+    position: absolute;
+  }
+  .fileinput label {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: var(--walki-blue);
+    cursor: pointer;
+    transition: transform .2s ease-out;
+  }
+.filename {
+    position: absolute;
+    bottom: -8px;
+    left: 145px;
+    font-size: 0.85rem;
+    width: 100%;
+    color: var(--walki-green);
+  }

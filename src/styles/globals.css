@@ -356,7 +356,7 @@ input {
   width: 93%;
 }
 
-.walki--link{
+.walki--link, .walki--critical{
   color:var(--walki-red);
 }
 .walki--emphasis{

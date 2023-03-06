@@ -14,6 +14,7 @@ import SettingsPage from "./SettingsPage";
 import HelpPage from "./HelpPage";
 import DashboardPage from "./DashboardPage";
 import AppDashPage from "./AppDashPage";
+import OpenPage from "./OpenPage";
 
 function MainContent() {
   console.log("render main contents");
@@ -37,6 +38,9 @@ function MainContent() {
   }
   if (activeMenuItemType === "login") {
     reactPageComponent = <AppDashPage />;
+  }
+  if (activeMenuItemType === "open") {
+    reactPageComponent = <OpenPage />;
   }
   if (activeMenuItemType === "wayline") {
     reactPageComponent = <WaylinePage />;

@@ -1,7 +1,5 @@
-//import React from "react";
+
 import SettingsContext from "./SettingsContext";
-import { initializeApp } from "firebase/app";
-import Link from "next/link";
 import SectionCard from "./SectionCard";
 import { useState, useEffect, useContext } from "react";
 

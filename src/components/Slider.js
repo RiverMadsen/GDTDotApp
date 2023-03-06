@@ -9,20 +9,25 @@ export function Slider() {
   const syncMode = settings.syncMode;
 
   useEffect( () => {
-    console.log("I am an effect in the slider")
-    updateSettings({...settings, screenHeight: screen.height , screenWidth: screen.width,sliderLeftPosition: 350, mainContentYPosition: 200})
+    console.log("I am an effect in the slider " + screen.height)
+    let x = {...settings}
+    x.screenHeight = screen.height
+    x.screenWidth = screen.width
+
+    updateSettings(x)
+    //updateSettings({...settings, screenHeight: screen.height , screenWidth: screen.width, sliderLeftPosition: 350, mainContentYPosition: 200})
 
   }, [])
 
   const handleSliderMoved = ( (event) => {
     //return;
     if (sliderRef.current) {
-      if(typeof window !== 'undefined'){
-        if(settings.screenHeight === -1){
-          updateSettings({...settings, screenHeight: screen.height})
-          console.log(settings.screenHeight)
-        }
-      }
+      // if(typeof window !== 'undefined'){
+      //   if(settings.screenHeight === -1){
+      //     updateSettings({...settings, screenHeight: screen.height})
+      //     console.log(settings.screenHeight)
+      //   }
+      // }
 
       let xPos = event.touches[0].clientX;
       let yPos = event.touches[0].clientY;
