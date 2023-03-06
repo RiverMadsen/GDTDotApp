@@ -81,6 +81,14 @@ const Data = [
     children: [],
   },
   {
+    ID: "Open",
+    type: "open",
+    menuText: "Open a Section",
+    menuIcon: "O",
+    content: "This is stuff relevant to the Open Page",
+    children: [],
+  },
+  {
     ID: "Settings",
     type: "settings",
     menuText: "Settings",

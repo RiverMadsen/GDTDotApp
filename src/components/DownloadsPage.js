@@ -28,7 +28,8 @@ export function DownloadsPage() {
       </p>
       <div>
         {settings.trailMenu.downloads.map((item) => {
-          return <SectionCard name={item.name} description={item.description} zip={item.fileName} image={item.image}></SectionCard>;
+          const zipFilePath = "./zips/"+ item.fileName
+          return <SectionCard name={item.name}  description={item.description} zip={zipFilePath} image={item.image}></SectionCard>;
         })}
       </div>
     </div>

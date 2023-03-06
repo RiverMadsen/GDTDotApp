@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./SectionCard.module.css";
 import Image from "next/Image";
+import Link from "next/link"
 
 export default function SectionCard(props) {
   return (
@@ -14,7 +15,7 @@ export default function SectionCard(props) {
       ></Image>
       <div className={styles.header}>{props.name}</div>
       <div>{props.description}</div>
-      <div className="walki--link">Download Now</div>
+      <a  href={props.zip} className="walki--link">Download</a>
     </div>
   );
 }
