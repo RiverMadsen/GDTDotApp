@@ -3,6 +3,7 @@ import React from "react";
 import SettingsContext from "./SettingsContext";
 import JSZip from "jszip";
 import styles from "./OpenPage.module.css";
+import { createCollections } from "./indexedDB";
 
 export function OpenPage() {
   const { settings, updateSettings } = useContext(SettingsContext);
