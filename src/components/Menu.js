@@ -115,6 +115,15 @@ const Data = [
     children: [],
   },
   {
+    ID: "Day",
+    type: "day",
+    menuText: "Day Example",
+    secondaryText: "Day 23",
+    content: "This is stuff relevant to the the Day Page",
+    menuIcon: "D",
+    children: [],
+  },
+  {
     ID: "Contribute",
     type: "text",
     menuText: "Contribute",
