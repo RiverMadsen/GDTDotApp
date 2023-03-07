@@ -1,3 +1,26 @@
 {
-  "extends": ["next/babel","next/core-web-vitals"]
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "rules": {
+    "linebreak-style": "off",
+    "no-console": 0,
+    "indent": ["error", 2]
+  }
 }
+// "plugin:@typescript-eslint/recommended",
+// "plugin:react/recommended",
+// "plugin:react-hooks/recommended"

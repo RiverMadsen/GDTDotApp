@@ -4,8 +4,10 @@ import SettingsContext from "./SettingsContext";
 import JSZip from "jszip";
 import styles from "./OpenPage.module.css";
 import { createCollections } from "./indexedDB";
+import { addToCollection } from "./indexedDB";
 
 export function OpenPage() {
+  addToCollection();
   const { settings, updateSettings } = useContext(SettingsContext);
   const [nameAndSize, updateNameAndSize] = useState("");
   const xx = "test";
